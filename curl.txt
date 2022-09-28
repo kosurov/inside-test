@@ -1,0 +1,29 @@
+curl --location --request POST 'http://localhost:8091/auth/registration' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "name": "user1",
+    "password": "password1"
+}'
+
+curl --location --request POST 'http://localhost:8091/auth/login' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "name": "user1",
+    "password": "password1"
+}'
+
+curl --location --request POST 'http://localhost:8091/message' \
+--header 'Authorization: Bearer_YOUR-TOKEN' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "name": "user1",
+    "message": "Hello message"
+}'
+
+curl --location --request POST 'http://localhost:8091/message' \
+--header 'Authorization: Bearer_YOUR-TOKEN' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "name": "user1",
+    "message": "history 10"
+}'

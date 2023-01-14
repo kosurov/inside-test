@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+  postgres:
+    image: 'postgres:14'
+    container_name: 'inside-test-postgres'
+    environment:
+      - 'POSTGRES_USER=postgres'
+      - 'POSTGRES_PASSWORD=postgres'
+      - 'POSTGRES_DB=inside_db'
+    ports:
+      - "5432:5432"
+
+  app:
+    build: ./
+    container_name: 'inside-test-app'
+    ports:
+      - "8091:80"
+    depends_on:
+      - postgres
+

@@ -47,7 +47,7 @@ public class MessageController {
             MessageDto createdMessage = messageService.save(messageDto);
             messagesResponse.setMessages(List.of(messageMapper.messageDtoToMessageResponse(createdMessage)));
         }
-        log.info("Mapped messages response: {}", messageRequest);
+        log.info("Mapped messages response: {}", messagesResponse);
         return messagesResponse;
     }
 }
